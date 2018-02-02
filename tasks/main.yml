@@ -28,7 +28,7 @@
   command: mas install "{{ item.id }}"
   become: yes
   with_items: "{{ mas_installed_apps }}"
-  when: "'item.id' not in mas_list.stdout"
+  # when: "'item.id' not in mas_list.stdout"
 
 - name: Upgrade all apps (if configured).
   command: mas upgrade
