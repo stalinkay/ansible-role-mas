@@ -25,7 +25,8 @@
   changed_when: false
 
 - name: Ensure configured MAS apps are installed.
-  shell: "mas install '{{ item.id }}'"
+  command: "mas install '{{ item.id }}'"
+  check_mode: no
   with_items: "{{ mas_installed_apps }}"
   # when: "'item.id' not in mas_list.stdout"
 
